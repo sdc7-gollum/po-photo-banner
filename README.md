@@ -1,4 +1,4 @@
-# Project Name
+# Project Overnight: Photo Banner Service
 
 > The Photo Banner Service handles the display of photos and interactions to browse through photos. See a photo grid displaying up to 5 images, whereby hovering over one brings the photo into focus and dimming the others. Click into the photo to see more details and access other images for the record via an image carousel.
 
@@ -16,18 +16,21 @@
 
 ## Usage
 
-> Some usage instructions
+This module uses Port 9800
 
-Uses Port 9800
+<!-- To seed the database
+> npm run seed -->
+To start up the server (webpack with babel)
+> npm run build
+To start up the client
+> npm start
 
 ## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - mongoDB with Mongoose
 - Express.js
 - React with JSX
-- Node 6.13.0
+- Node.js
 
 ## Development
 
