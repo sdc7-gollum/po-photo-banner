@@ -1,9 +1,11 @@
+/* eslint-disable no-console */
 const express = require('express');
+
 const port = 9800;
-app = express();
-app.listen(port, (err, res) => {
+const app = express();
+app.listen(port, (err) => {
   if (err) {
-    console.log(`Error starting up server`);
+    console.log('Error starting up server');
   } else {
     console.log(`Server now hosted on http://127.0.0.1:${port}`);
   }
