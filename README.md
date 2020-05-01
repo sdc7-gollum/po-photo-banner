@@ -16,8 +16,10 @@
 
 ## Usage
 
-This module uses Port 9800
+This module
+- Follows [Airbnb style guide](https://github.com/airbnb/javascript)
 
+Make a copy of .env_sample to add server host and port details. Save as .env and ensure its added to .gitignore.
 <!-- To seed the database
 > npm run seed -->
 To start up the server (webpack with babel)
@@ -40,7 +42,7 @@ From within the root directory:
 
 ```sh
 npm install --save-dev webpack webpack-cli babel-loader @babel/core @babel/preset-env @babel/preset-react
-npm install --save-dev nodemon jest
+npm install --save-dev nodemon jest eslint
 npm install --save mongodb mongoose express react react-dom
 ```
 

@@ -1,3 +1,6 @@
+# Secrets
+.env
+
 # Compiled Dirs
 public/photoBannerBundle.js
 

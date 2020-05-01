@@ -1,13 +1,13 @@
 /* eslint-disable no-console */
+require('dotenv').config();
 const express = require('express');
 
-const port = 9800;
 const app = express();
-app.listen(port, (err) => {
+app.listen(process.env.SERVER_PORT, (err) => {
   if (err) {
     console.log('Error starting up server');
   } else {
-    console.log(`Server now hosted on http://127.0.0.1:${port}`);
+    console.log(`Server now hosted on ${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`);
   }
 });
 
