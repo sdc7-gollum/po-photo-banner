@@ -1,6 +1,6 @@
 # Project Overnight: Photo Banner Service
 
-> The Photo Banner Service handles the display of photos and interactions to browse through photos. See a photo grid displaying up to 5 images, whereby hovering over one brings the photo into focus and dimming the others. Click into the photo to see more details and access other images for the record via an image carousel.
+> A service handling the photo banner to display and allow the user to browse through photos. See a photo grid displaying up to 5 images, whereby hovering over one brings the photo into focus and dimming the others. Click into the photo to see more details and access other images for the record via an image carousel.
 
 ## Related Projects
 
@@ -43,6 +43,6 @@ From within the root directory:
 ```sh
 npm install --save-dev webpack webpack-cli babel-loader @babel/core @babel/preset-env @babel/preset-react
 npm install --save-dev nodemon jest eslint
-npm install --save mongodb mongoose express react react-dom
+npm install --save mongodb mongoose express react react-dom jquery
 ```
 
