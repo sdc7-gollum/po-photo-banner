@@ -99,11 +99,11 @@ const getRandomPhoto = (numPhotos) => {
 // Generate x number of records for seeding data
 const createSampleData = (startingId, numRecords) => {
   let id = startingId;
-  // An arbitrary number was chosen for the max in generating random
-  // Each UI page can have at max 5 elements so this allows for a small set of photos
-  const photoArray = getRandomPhoto(Math.floor(Math.random() * Math.floor(12)));
 
   for (let i = 0; i < numRecords; i += 1) {
+    // An arbitrary number was chosen for the max in generating random
+    // Each UI page can have at max 5 elements so this allows for a small set of photos
+    const photoArray = getRandomPhoto(Math.floor(Math.random() * Math.floor(12)));
     const newRecord = {
       _id: id,
       photos: photoArray,
@@ -113,7 +113,7 @@ const createSampleData = (startingId, numRecords) => {
   }
   console.log(data);
 };
+
 // DEV NOTE: Enter desired data generating parameters
 createSampleData(1, 130);
-
 db.RoomPhotos.collection.insertMany(data);
