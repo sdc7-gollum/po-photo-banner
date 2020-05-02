@@ -3,7 +3,9 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-mongoose.connect(`mongodb://${process.env.SERVER_HOST}/project-overnight`, { useNewUrlParser: true });
+const host = process.env.SERVER_HOST || 'localhost';
+
+mongoose.connect(`mongodb://${host}/project-overnight`, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('err', console.error.bind(console, 'connection error:'));
 db.once('open', () => {

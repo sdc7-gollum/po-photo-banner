@@ -3,13 +3,16 @@ require('dotenv').config();
 const express = require('express');
 const db = require('../db/database.js');
 
+const host = process.env.SERVER_HOST || '127.0.0.1';
+const port = process.env.SERVER_PORT || '9800';
+
 // Server Connection
 const app = express();
 app.listen(process.env.SERVER_PORT, (err) => {
   if (err) {
     console.log('Error starting up server');
   } else {
-    console.log(`Server now hosted on http://${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`);
+    console.log(`Server now hosted on http://${host}:${port}`);
   }
 });
 
