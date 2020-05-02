@@ -20,8 +20,9 @@ This module
 - Follows [Airbnb style guide](https://github.com/airbnb/javascript)
 
 Make a copy of .env_sample to add server host and port details. Save as .env and ensure its added to .gitignore.
-<!-- To seed the database
-> npm run seed -->
+
+To seed the database. In seeder.js, update URLs to desired links and createSampleData(startingNumber, numberOfRecords) on line 120.
+> npm run seed
 To start up the server (webpack with babel)
 > npm run build
 To start up the client
