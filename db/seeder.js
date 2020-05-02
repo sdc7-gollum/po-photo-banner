@@ -96,7 +96,6 @@ const getRandomPhoto = (numPhotos) => {
   }
   return photoArray;
 };
-getRandomPhoto(Math.ceil(Math.random() * Math.floor(12)));
 
 // Generate x number of records for seeding data
 const createSampleData = (startingId, numRecords) => {
