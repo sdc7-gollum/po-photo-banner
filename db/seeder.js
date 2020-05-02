@@ -72,7 +72,7 @@ const photoDesc = [
   'Stylish',
   '',
 ];
-const verifiedOptions = [true, false];
+const verifiedText = ['Photo Verified by Project Overnight', ''];
 const data = [];
 
 const getRandomPhoto = (numPhotos) => {
@@ -82,14 +82,13 @@ const getRandomPhoto = (numPhotos) => {
   for (let i = 0; i < numPhotos; i += 1) {
     const url = photoUrl[Math.floor(Math.random() * Math.floor(photoUrl.length))];
     const description = photoDesc[Math.floor(Math.random() * Math.floor(photoDesc.length))];
-    const verified = Math.floor(Math.random() * Math.floor(verifiedOptions.length));
-    const verifiedText = verified === 1 ? 'Photo Verified by Project Overnight' : '';
+    const verified = verifiedText[Math.floor(Math.random() * Math.floor(verifiedText.length))];
 
     const newPhoto = {
       photoId,
       url,
       description,
-      verified: verifiedText,
+      verified,
     };
     photoArray.push(newPhoto);
     photoId += 1;
@@ -101,7 +100,7 @@ const getRandomPhoto = (numPhotos) => {
 const createSampleData = (startingId, numRecords) => {
   let id = startingId;
   // An arbitrary number was chosen for the max in generating random
-  // Each UI page can have at max 5 elements so this allows for a small subset of data
+  // Each UI page can have at max 5 elements so this allows for a small set of photos
   const photoArray = getRandomPhoto(Math.floor(Math.random() * Math.floor(12)));
 
   for (let i = 0; i < numRecords; i += 1) {
@@ -114,12 +113,7 @@ const createSampleData = (startingId, numRecords) => {
   }
   console.log(data);
 };
-
 // DEV NOTE: Enter desired data generating parameters
 createSampleData(1, 130);
 
-// Load sample data into data array
-// Invoke mongoose functions to create a new record for each item from the data array
-for (let i = 0; i < data.length; i += 1) {
-  db.RoomPhotos.create(data[i], (err) => { if (err) { console.log(err); } });
-}
+db.RoomPhotos.collection.insertMany(data);
