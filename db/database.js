@@ -17,7 +17,7 @@ const roomPhotosSchema = new mongoose.Schema({
     photoId: Number,
     url: String,
     description: String,
-    verified: { type: Boolean, default: false },
+    verified: String,
   }],
 });
 
