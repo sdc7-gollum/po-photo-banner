@@ -6,3 +6,6 @@ public/photoBannerBundle.js
 
 # Dev Dependencies
 node_modules
+
+# Local tests
+/experimental

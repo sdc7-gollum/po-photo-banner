@@ -27,7 +27,7 @@ const RoomPhotos = mongoose.model('RoomPhotos', roomPhotosSchema);
 
 // DB Helpers
 const getPhotosByRoomId = (id, callback) => {
-  RoomPhotos.find({ _id: id }, (err, photos) => {
+  RoomPhotos.findOne({ _id: id }, (err, photos) => {
     if (err) {
       callback(err);
     } else {
