@@ -43,7 +43,7 @@ From within the root directory:
 
 ```sh
 npm install --save-dev webpack webpack-cli babel-loader @babel/core @babel/preset-env @babel/preset-react
-npm install --save-dev nodemon jest eslint
+npm install --save-dev nodemon eslint jest babel-jest enzyme enzyme-adapter-react-16
 npm install --save mongodb mongoose express react react-dom jquery
 ```
 

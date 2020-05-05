@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
+import PhotoGrid from './PhotoGrid';
 // import Photo from './Photo';
-// import PhotoGrid from './PhotoGrid';
 
 class PhotoBanner extends React.Component {
   constructor(props) {
@@ -33,8 +33,8 @@ class PhotoBanner extends React.Component {
     const { roomId, photos } = this.state;
     let showPhotos;
     if (JSON.stringify(photos) !== '{}') {
-      // showPhotos = <PhotoGrid roomId={roomId} photos={photos} />;
-      showPhotos = <img src={photos[0].url} />;
+      showPhotos = <PhotoGrid roomId={roomId} photos={photos} />;
+      // showPhotos = <img src={photos[0].url} />;
     } else {
       showPhotos = <a href='#' onClick={this.getPhotosById}> Record 10 </a>;
     }
