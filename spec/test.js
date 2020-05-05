@@ -1,12 +1,18 @@
-const sum = require('./samplejest');
-const dbseeder = require('../db/seeder.js');
+import React from 'react';
+import { shallow, mount, render } from 'enzyme';
 
-// Test of Jest Setup
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+// Components
+import PhotoBanner from '../client/components/PhotoBanner';
+const wrapper = shallow(<PhotoBanner />);
+
+describe('Temporary Dev Environment Smoke Tests', () => {
+  it('Should be a jest test that ensures proper setup', () => {
+    expect(true).toEqual(true);
+  });
+
+  // it('Should navigate to the sample listing page that retrieves data', async () => {
+  //   wrapper.find('a').simulate('click');
+  //   await Promise.resolve();
+  //   expect(wrapper.find('_id')).toBe(true);
+  // });
 });
-
-// Test DB Seeder
-test('creates specified number of records', () => {
-  expect()
-})
