@@ -1,15 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-//TODO: Prop-types validation
-function PhotoGrid({ roomId, photos }) {
-
-  // let coverPhotos = () => {
-  //   for (let i = 0; i < 5; i += 1) {
-  //     <img src={photos[i].url} alt="" />;
-  //   }
-  // };
+function PhotoGrid({ photos }) {
+  // Load up to 5 photos for photo cover
+  const maxPhotos = photos.length < 5 ? photos.length : 5;
+  const coverPhotos = [
+    <div className="cover-item cover-item-main">
+      <img src={photos[0].url} alt="" />
+    </div>,
+  ];
+  for (let i = 1; i < maxPhotos; i += 1) {
+    coverPhotos.push(
+      <div className="cover-item">
+        <img src={photos[i].url} alt="" />
+      </div>,
+    );
+  }
 
   return (
+  // LINKS FOR RECORDS FROM DB, USING S3 FILES
+  // <div className="cover-grid">
+  //   {coverPhotos}
+  // </div>
+
+  // LINKS USED WHILE IN DEV
     <div className="cover-grid">
       <div className="cover-item cover-item-main">
         <img src="https://japaneseanimeinfo.up.seesaa.net/image/401-3e556.jpg" alt="" />
@@ -17,12 +31,14 @@ function PhotoGrid({ roomId, photos }) {
       <div className="cover-item">
         <img src="https://i.pinimg.com/474x/47/14/f2/4714f2e99aef38240636d17e976f1672.jpg" alt="" />
       </div>
-      <div className="cover-item">
-        <img src="https://lh3.googleusercontent.com/proxy/P0Zfb9jJTOTc_F7W-8aDA5AZDZjYvIJwkiPCHCS1J7JfhSgsTmHba9q_BUzs3bf8aWwMY0IVjJGvavgFflnPdHATf1TLDPJRp6v8BX1Nl767g8iGxgOKL_JB31V-mqAKGA" alt="" />
+      <div id="cover" className="cover-item">
+        <img src="https://38.media.tumblr.com/d71937fbafee6034223655109b7ef290/tumblr_n344pe5wDU1siudrpo4_1280.jpg" alt="" />
       </div>
       <div className="cover-item">
-        <img src="https://i1.wp.com/www.campus.sg/wp-content/uploads/2016/04/cute-japanese-sweets-wagashi-2__605.jpg?fit=605%2C403&ssl=1&w=640
-" alt="" />
+        <img
+          src="https://i1.wp.com/www.campus.sg/wp-content/uploads/2016/04/cute-japanese-sweets-wagashi-2__605.jpg?fit=605%2C403&ssl=1&w=640"
+          alt=""
+        />
       </div>
       <div className="cover-item">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT0BHsoTFWFamidPYmgJeKVyFkWqyQfOFDipGyq6jopL5mRvsbO&usqp=CAU" alt="" />
@@ -31,10 +47,8 @@ function PhotoGrid({ roomId, photos }) {
   );
 }
 
-export default PhotoGrid;
+PhotoGrid.propTypes = {
+  photos: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
-  // processAjaxPhotos(ajaxRes) {
-  //   console.log('photosfn', ajaxRes);
-  //   // photosRes.map((photo) => <Photo key={photo.photoId} photo={photo} />);
-  //   // <PhotoGrid photos={photosRes} />
-  // }
+export default PhotoGrid;

@@ -1,14 +1,13 @@
 import React from 'react';
 import $ from 'jquery';
 import PhotoGrid from './PhotoGrid';
-// import Photo from './Photo';
 
 class PhotoBanner extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      roomId: '10', // this is a placeholder to test retrieval of record 10
+      roomId: '5', // this is a placeholder to test retrieval of record 10 (9 photos) || 5 (3 photos)
       photos: {},
     };
 
@@ -23,6 +22,7 @@ class PhotoBanner extends React.Component {
     })
       .done((res) => {
         this.setState({
+          /* eslint no-underscore-dangle: ["error", {"allow": ["_id"]}] */
           roomId: res._id,
           photos: res.photos,
         });
@@ -34,9 +34,13 @@ class PhotoBanner extends React.Component {
     let showPhotos;
     if (JSON.stringify(photos) !== '{}') {
       showPhotos = <PhotoGrid roomId={roomId} photos={photos} />;
-      // showPhotos = <img src={photos[0].url} />;
     } else {
-      showPhotos = <a href='#' onClick={this.getPhotosById}> Record 10 </a>;
+      showPhotos = (
+        <a href="#" onClick={this.getPhotosById}>
+          Record
+          {roomId}
+        </a>
+      );
     }
 
     return (
