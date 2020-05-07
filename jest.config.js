@@ -26,6 +26,7 @@ module.exports = {
     'db/*.{js,jsx}',
     'server/*.{js,jsx}',
     'client/*.{js,jsx}',
+    'client/components/*.{js,jsx}',
   ],
 
   // The directory where Jest should output its coverage files

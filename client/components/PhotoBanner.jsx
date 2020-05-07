@@ -8,7 +8,7 @@ class PhotoBanner extends React.Component {
 
     this.state = {
       roomId: '5', // this is a placeholder to test retrieval of record 10 (9 photos) || 5 (3 photos)
-      photos: {},
+      photos: [],
     };
 
     this.getPhotosById = this.getPhotosById.bind(this);
@@ -32,7 +32,7 @@ class PhotoBanner extends React.Component {
   render() {
     const { roomId, photos } = this.state;
     let showPhotos;
-    if (JSON.stringify(photos) !== '{}') {
+    if (photos.length > 0) {
       showPhotos = <PhotoGrid roomId={roomId} photos={photos} />;
     } else {
       showPhotos = (

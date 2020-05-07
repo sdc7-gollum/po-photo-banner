@@ -6,7 +6,7 @@
 }
 
 .header {
-  padding: 25px;
+  padding: 30px;
   border-bottom: 1px solid lightgray;
   color: rgb(247, 57, 82);
   vertical-align: bottom;
@@ -16,7 +16,7 @@
 .cover-grid {
   display: grid;
   grid-template-columns: 2fr repeat(2, 1fr);
-  grid-template-rows: repeat(2, 18vw);
+  grid-template-rows: repeat(2, 21vw);
   box-shadow: 1px 1px rgb(20, 20, 20);
   overflow: hidden;
 }
@@ -41,7 +41,7 @@ div.cover-item {
   border: 1px solid rgb(20, 20, 20);
 }
 
-/* Attempt at grid sizing */
+/* In-progress testing of css grid features */
 /* .cover-grid {
   display: grid; */
   /* grid-template-columns: 2fr minmax(1fr, 2fr); */
@@ -94,7 +94,7 @@ div.cover-item {
 } */
 
 
-/* NEW COVER ITEM
+/* User Story 2
 .cover-item > img {
   min-height: 0%;
   height: 100%;
