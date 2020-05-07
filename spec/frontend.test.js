@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import $ from 'jquery';
 
 // Components
@@ -30,13 +30,14 @@ describe('PhotoBanner Test Suite', () => {
     expect(wrapper.find('PhotoGrid')).toHaveLength(1);
   });
 
+  // In-progress spy
   test('links trigger an ajax call to getPhotosById', () => {
     const wrapper = shallow(<PhotoBanner />);
     const spy = jest.spyOn($, 'ajax');
-    const photos = wrapper.instance().getPhotosById();
+    wrapper.instance().getPhotosById();
     expect(spy).toBeCalledWith({
       method: 'GET',
-      url: `/api/photos/5`,
+      url: '/api/photos/5',
     });
     expect(spy).toHaveBeenCalled();
     spy.mockRestore();
