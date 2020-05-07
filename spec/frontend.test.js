@@ -1,17 +1,13 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import $ from 'jquery';
 
 // Components
-// import indexJSX from '../client/index';
 import PhotoBanner from '../client/components/PhotoBanner';
 import PhotoGrid from '../client/components/PhotoGrid';
-
-// describe('Index Test Suite', () => {
-//   it('Should render the index html with the PhotoBanner', () => {
-//     ReactDOM.render(<PhotoBanner />, document.getElementById('photoBanner'));
-//   });
-// });
 
 describe('PhotoBanner Test Suite', () => {
   test('initial state of PhotoBanner', () => {
