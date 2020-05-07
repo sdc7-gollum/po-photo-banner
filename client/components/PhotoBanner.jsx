@@ -14,6 +14,10 @@ class PhotoBanner extends React.Component {
     this.getPhotosById = this.getPhotosById.bind(this);
   }
 
+  componentDidMount() {
+    this.getPhotosById();
+  }
+
   getPhotosById() {
     const { roomId } = this.state;
     $.ajax({
