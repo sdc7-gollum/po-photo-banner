@@ -6,8 +6,11 @@ class PhotoBanner extends React.Component {
   constructor(props) {
     super(props);
 
+    const urlId = window.location.href.split('?')[1];
+
+    // for testing, record 10 (9 photos) || 5 (3 photos)
     this.state = {
-      roomId: '5', // this is a placeholder to test retrieval of record 10 (9 photos) || 5 (3 photos)
+      roomId: (urlId || '10'),
       photos: [],
     };
 
