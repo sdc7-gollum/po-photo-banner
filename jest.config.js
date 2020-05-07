@@ -26,6 +26,7 @@ module.exports = {
     'db/*.{js,jsx}',
     'server/*.{js,jsx}',
     'client/*.{js,jsx}',
+    'client/components/*.{js,jsx}',
   ],
 
   // The directory where Jest should output its coverage files
@@ -96,7 +97,7 @@ module.exports = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  // preset: undefined,
+  preset: '@shelf/jest-mongodb',
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -137,7 +138,7 @@ module.exports = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: 'jsdom',
+  testEnvironment: 'node',
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},

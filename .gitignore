@@ -8,5 +8,4 @@ public/photoBannerBundle.js
 node_modules
 
 # Local tests
-experimental
 spec/coverage

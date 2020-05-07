@@ -1,4 +1,41 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Montserrat;
+  color: rgb(72, 72, 72);
+}
+
+.header {
+  padding: 30px;
+  border-bottom: 1px solid lightgray;
+  color: rgb(247, 57, 82);
+  vertical-align: bottom;
+}
+
+.cover-grid {
+  display: grid;
+  grid-template-columns: 2fr repeat(2, 1fr);
+  grid-template-rows: repeat(2, 21vw);
+  box-shadow: 1px 1px rgb(20, 20, 20);
+  overflow: hidden;
+}
+
+.cover-item-main {
+  grid-area: 1 / 1 / 3 / 2;
+}
+
+div.cover-item {
+  overflow: hidden;
+}
+
+.cover-item > img {
+  min-height: 0%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  border: 1px solid rgb(20, 20, 20);
 }
