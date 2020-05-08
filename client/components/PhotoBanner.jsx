@@ -73,10 +73,11 @@ class PhotoBanner extends React.Component {
       });
   }
 
-  loadModal() {
+  loadModal(selectedPhoto) {
     const { isModalActive } = this.state;
     this.setState({
       isModalActive: !isModalActive,
+      selectedPhoto: selectedPhoto,
     });
   }
 

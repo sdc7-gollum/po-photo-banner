@@ -47,6 +47,11 @@
   transition-timing-function: ease-in-out;
 }
 
+/* HOVER EFFECTS */
+/* .view-photos:hover .cover-grid{
+  mix-blend-mode: normal;
+} */
+
 .cover-grid:hover > .cover-item > img {
   mix-blend-mode: darken;
 }
@@ -71,11 +76,16 @@
 }
 
 .view-photos {
+  z-index: 2;
   grid-column-start: 4;
   justify-self: right;
   position: relative;
   bottom: 55;
   margin-right: 26px;
+}
+
+.view-photos:hover > .cover-grid:hover{
+
 }
 
 /* MODAL STYLES */

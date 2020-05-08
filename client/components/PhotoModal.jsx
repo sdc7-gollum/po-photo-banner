@@ -19,7 +19,7 @@ class PhotoModal extends React.Component {
           <img src={photos[selectedPhoto].url} alt="" />
         </div>
         <div className="photo-modal-right">
-          <button className="btn photo-modal-close" type="button" onClick={() => { loadModal(); }}>&times;</button>
+          <button className="btn photo-modal-close" type="button" onClick={() => { loadModal(selectedPhoto); }}>&times;</button>
         </div>
         <div className="photo-modal-slider">
           PLACEHOLDER FOR PHOTO SELECTOR
