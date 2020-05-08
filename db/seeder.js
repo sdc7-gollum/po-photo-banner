@@ -84,9 +84,8 @@ const getRandomPhoto = (numPhotos) => {
     const verified = verifiedText[Math.floor(Math.random() * Math.floor(verifiedText.length))];
     let url = photoUrl[Math.floor(Math.random() * Math.floor(photoUrl.length))];
 
-    // Exclude photo dupes
-    while (photoArray.includes(url)) {
-      console.log('dupe found');
+    // Exclude photo dupes from randomized photo array
+    while (JSON.stringify(photoArray).includes(url)) {
       url = photoUrl[Math.floor(Math.random() * Math.floor(photoUrl.length))];
     }
 
@@ -123,8 +122,8 @@ const createSampleData = (startingId, numRecords) => {
 
 // DEV NOTES:
 // 1. Manually drop database tables if desired: use projectovernight; db.dropDatabase();
-// 2. Enter desired data generating parameters
-createSampleData(2, 20);
+// 2. Enter desired data generating parameters for starting id and number of rooms
+createSampleData(2, 129);
 database.RoomPhotos.collection.insertMany(data, (err) => {
   if (err) {
     console.log(`Error seeding: ${err}`);
