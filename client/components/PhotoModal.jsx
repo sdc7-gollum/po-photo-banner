@@ -14,13 +14,13 @@ class PhotoModal extends React.Component {
     const { loadModal, photos, selectedPhoto } = this.props;
     return (
       <div className="photo-modal">
-        <section>
+        <div className="main-right">
           <button className="cover-button photo-modal-close" type="button" onClick={() => { loadModal(); }}>&times;</button>
-        </section>
+        </div>
         <div className="photo-modal-main">
           <img src={photos[selectedPhoto].url} alt="" />
         </div>
-        <div className="photo-modal-text">
+        <div className="photo-modal-slider">
           PLACEHOLDER FOR PHOTO SELECTOR
         </div>
         <div className="photo-modal-text">

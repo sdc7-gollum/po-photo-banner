@@ -9,10 +9,43 @@ class PhotoBanner extends React.Component {
 
     const urlId = window.location.href.split('?')[1];
 
-    // for testing, record 10 (9 photos) || 5 (3 photos)
     this.state = {
-      roomId: (urlId || '10'),
-      photos: [],
+      // roomId: (urlId || '10'), // Test record 10 (9 photos) || 5 (3 photos)
+      // photos: [],
+      // LOCAL TEST DATA
+      roomId: '300',
+      photos: [
+        {
+          photoId: 1,
+          url: 'https://japaneseanimeinfo.up.seesaa.net/image/401-3e556.jpg',
+          description: 'hello world',
+          verified: 'Photo verified by Project Overnight',
+        },
+        {
+          photoId: 2,
+          url: 'https://i.pinimg.com/474x/47/14/f2/4714f2e99aef38240636d17e976f1672.jpg',
+          description: 'hello world',
+          verified: 'Photo verified by Project Overnight',
+        },
+        {
+          photoId: 3,
+          url: 'https://38.media.tumblr.com/d71937fbafee6034223655109b7ef290/tumblr_n344pe5wDU1siudrpo4_1280.jpg',
+          description: 'hello world',
+          verified: 'Photo verified by Project Overnight',
+        },
+        {
+          photoId: 4,
+          url: 'https://i1.wp.com/www.campus.sg/wp-content/uploads/2016/04/cute-japanese-sweets-wagashi-2__605.jpg?fit=605%2C403&ssl=1&w=640',
+          description: 'hello world',
+          verified: 'Photo verified by Project Overnight',
+        },
+        {
+          photoId: 5,
+          url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT0BHsoTFWFamidPYmgJeKVyFkWqyQfOFDipGyq6jopL5mRvsbO&usqp=CAU',
+          description: 'hello world',
+          verified: 'Photo verified by Project Overnight',
+        },
+      ],
       isModalActive: false,
       selectedPhoto: 0,
     };
