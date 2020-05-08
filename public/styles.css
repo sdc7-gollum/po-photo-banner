@@ -42,7 +42,6 @@
   width: 100%;
   object-fit: cover;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   transition-duration: .2s;
   transition-timing-function: ease-in-out;
@@ -66,18 +65,20 @@
 }
 
 .cover-button {
-  padding: 7px 16px;
+  padding: 10px 20px;
   font-size: 13px;
   font-weight: 900;
 }
 
 .view-photos {
+  grid-column-start: 4;
+  justify-self: right;
   position: relative;
-  bottom: 50;
+  bottom: 55;
+  margin-right: 26px;
 }
 
 /* MODAL STYLES */
-/* TODO: improve css grid positioning */
 .photo-modal {
   background-color: white;
   position: absolute;
