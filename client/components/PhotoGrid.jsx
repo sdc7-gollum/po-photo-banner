@@ -52,7 +52,9 @@ function PhotoGrid({ photos, loadModal }) {
   //   </div>
 
   //   <div className="view-photos">
-  //     <button className="cover-button" type="button" onClick={ () => { loadModal(); }}>View Photos</button>
+  //     <button className="cover-button" type="button" onClick={ () => { loadModal(); }}>
+  //        View Photos
+  //     </button>
   //   </div>
   // </div>
   );

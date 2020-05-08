@@ -6,21 +6,21 @@ class PhotoModal extends React.Component {
     super(props);
 
     this.state = {
-      selectedPhoto: this.props.selectedPhoto,
+      // selectedPhoto: this.props.selectedPhoto,
     };
   }
 
   render() {
-    const { loadModal, photos } = this.props;
+    const { loadModal, photos, selectedPhoto } = this.props;
     return (
       <div className="photo-modal">
-        <div>
+        <section>
           <button className="cover-button photo-modal-close" type="button" onClick={() => { loadModal(); }}>&times;</button>
+        </section>
+        <div className="photo-modal-main">
+          <img src={photos[selectedPhoto].url} alt="" />
         </div>
-        <div className="photo-modal-img">
-          <img src="https://japaneseanimeinfo.up.seesaa.net/image/401-3e556.jpg" />
-        </div>
-        <div className="photo-modal-img">
+        <div className="photo-modal-text">
           PLACEHOLDER FOR PHOTO SELECTOR
         </div>
         <div className="photo-modal-text">
@@ -44,6 +44,7 @@ class PhotoModal extends React.Component {
 PhotoModal.propTypes = {
   loadModal: PropTypes.func.isRequired,
   photos: PropTypes.arrayOf(PropTypes.object).isRequired,
+  selectedPhoto: PropTypes.number.isRequired,
 };
 
 export default PhotoModal;

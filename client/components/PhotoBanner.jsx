@@ -14,6 +14,7 @@ class PhotoBanner extends React.Component {
       roomId: (urlId || '10'),
       photos: [],
       isModalActive: false,
+      selectedPhoto: 0,
     };
 
     this.getPhotosById = this.getPhotosById.bind(this);
@@ -47,11 +48,16 @@ class PhotoBanner extends React.Component {
   }
 
   render() {
-    const { roomId, photos, isModalActive } = this.state;
+    const {
+      roomId, photos, isModalActive, selectedPhoto,
+    } = this.state;
+
     let showPhotos;
     if (isModalActive) {
       // if modal is activated, show the modal
-      showPhotos = <PhotoModal loadModal={this.loadModal} photos={photos} />;
+      showPhotos = (
+        <PhotoModal loadModal={this.loadModal} photos={photos} selectedPhoto={selectedPhoto} />
+      );
     } else if (photos.length === 0) {
       // placeholder to add image mimicking google sheets faux-view onload
       showPhotos = <img src="https://japaneseanimeinfo.up.seesaa.net/image/401-3e556.jpg" alt="" />;
