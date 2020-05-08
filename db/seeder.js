@@ -121,7 +121,9 @@ const createSampleData = (startingId, numRecords) => {
   console.log(data);
 };
 
-// DEV NOTE: Enter desired data generating parameters
+// DEV NOTES:
+// 1. Manually drop database tables if desired: use projectovernight; db.dropDatabase();
+// 2. Enter desired data generating parameters
 createSampleData(2, 20);
 db.RoomPhotos.collection.insertMany(data);
 
