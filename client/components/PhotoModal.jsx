@@ -26,15 +26,15 @@ class PhotoModal extends React.Component {
         </div>
         <div className="photo-modal-text">
           <div className="photo-modal-photonum">
-            {photos[0].photoId}
+            {photos[selectedPhoto].photoId}
             /
             {photos.length}
           </div>
           <div className="photo-modal-desc">
-            {photos[0].description}
+            {photos[selectedPhoto].description}
           </div>
           <div className="photo-modal-verified">
-            {photos[0].verified}
+            {photos[selectedPhoto].verified}
           </div>
         </div>
       </div>
