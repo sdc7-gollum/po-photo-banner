@@ -37,6 +37,7 @@ const getPhotosByRoomId = (id, callback) => {
 };
 
 module.exports = {
+  db,
   RoomPhotos,
   getPhotosByRoomId,
 };

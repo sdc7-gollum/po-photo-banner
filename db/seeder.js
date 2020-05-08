@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const db = require('./database');
+const database = require('./database');
 
 // The Data!
 // DEV NOTES: Consider using your own urls here. An option is to create urls from files:
@@ -125,7 +125,12 @@ const createSampleData = (startingId, numRecords) => {
 // 1. Manually drop database tables if desired: use projectovernight; db.dropDatabase();
 // 2. Enter desired data generating parameters
 createSampleData(2, 20);
-db.RoomPhotos.collection.insertMany(data);
+database.RoomPhotos.collection.insertMany(data, (err) => {
+  if (err) {
+    console.log(`Error seeding: ${err}`);
+  }
+  database.db.close();
+});
 
 // Specially curated record (#1) for demo purposes
 const demoRoom = {
@@ -206,4 +211,9 @@ const demoRoom = {
   ],
 };
 
-db.RoomPhotos.collection.insertOne(demoRoom);
+database.RoomPhotos.collection.insertOne(demoRoom, (err) => {
+  if (err) {
+    console.log(`Error seeding: ${err}`);
+  }
+  database.db.close();
+});
