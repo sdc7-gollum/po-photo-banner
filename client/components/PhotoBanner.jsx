@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import PhotoGrid from './PhotoGrid';
+import PhotoModal from './PhotoModal';
 
 class PhotoBanner extends React.Component {
   constructor(props) {
@@ -12,9 +13,11 @@ class PhotoBanner extends React.Component {
     this.state = {
       roomId: (urlId || '10'),
       photos: [],
+      isModalActive: false,
     };
 
     this.getPhotosById = this.getPhotosById.bind(this);
+    this.loadModal = this.loadModal.bind(this);
   }
 
   componentDidMount() {
@@ -36,18 +39,25 @@ class PhotoBanner extends React.Component {
       });
   }
 
+  loadModal() {
+    const { isModalActive } = this.state;
+    this.setState({
+      isModalActive: !isModalActive,
+    });
+  }
+
   render() {
-    const { roomId, photos } = this.state;
+    const { roomId, photos, isModalActive } = this.state;
     let showPhotos;
-    if (photos.length > 0) {
-      showPhotos = <PhotoGrid roomId={roomId} photos={photos} />;
+    if (isModalActive) {
+      // if modal is activated, show the modal
+      showPhotos = <PhotoModal loadModal={this.loadModal} photos={photos} />;
+    } else if (photos.length === 0) {
+      // placeholder to add image mimicking google sheets faux-view onload
+      showPhotos = <img src="https://japaneseanimeinfo.up.seesaa.net/image/401-3e556.jpg" alt="" />;
     } else {
-      showPhotos = (
-        <a href="#" onClick={this.getPhotosById}>
-          Record
-          {roomId}
-        </a>
-      );
+      // if state has photos, show the photo grid
+      showPhotos = <PhotoGrid roomId={roomId} photos={photos} loadModal={this.loadModal} />;
     }
 
     return (
