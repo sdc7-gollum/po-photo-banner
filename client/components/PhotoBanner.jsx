@@ -10,10 +10,9 @@ class PhotoBanner extends React.Component {
     const urlId = window.location.href.split('?')[1];
 
     this.state = {
-      // roomId: (urlId || '10'), // Test record 10 (9 photos) || 5 (3 photos)
+      roomId: (urlId || '300'),
       // photos: [],
       // LOCAL TEST DATA
-      roomId: '300',
       photos: [
         {
           photoId: 1,
@@ -77,7 +76,7 @@ class PhotoBanner extends React.Component {
     const { isModalActive } = this.state;
     this.setState({
       isModalActive: !isModalActive,
-      selectedPhoto: selectedPhoto,
+      selectedPhoto,
     });
   }
 

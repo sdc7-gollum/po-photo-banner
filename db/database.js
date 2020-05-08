@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const host = process.env.SERVER_HOST || 'localhost';
 
-mongoose.connect(`mongodb://${host}/project-overnight`, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`mongodb://${host}/projectovernight`, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('err', console.error.bind(console, 'connection error:'));
 db.once('open', () => {

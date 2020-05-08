@@ -80,9 +80,15 @@ const getRandomPhoto = (numPhotos) => {
   let photoId = 1;
 
   for (let i = 0; i < numPhotos; i += 1) {
-    const url = photoUrl[Math.floor(Math.random() * Math.floor(photoUrl.length))];
     const description = photoDesc[Math.floor(Math.random() * Math.floor(photoDesc.length))];
     const verified = verifiedText[Math.floor(Math.random() * Math.floor(verifiedText.length))];
+    let url = photoUrl[Math.floor(Math.random() * Math.floor(photoUrl.length))];
+
+    // Exclude photo dupes
+    while (photoArray.includes(url)) {
+      console.log('dupe found');
+      url = photoUrl[Math.floor(Math.random() * Math.floor(photoUrl.length))];
+    }
 
     const newPhoto = {
       photoId,
@@ -116,5 +122,86 @@ const createSampleData = (startingId, numRecords) => {
 };
 
 // DEV NOTE: Enter desired data generating parameters
-createSampleData(1, 130);
+createSampleData(2, 20);
 db.RoomPhotos.collection.insertMany(data);
+
+// Specially curated record (#1) for demo purposes
+const demoRoom = {
+  _id: 1,
+  photos: [
+    {
+      photoId: 1,
+      url: 'https://leileihrr.s3.amazonaws.com/bed001.jpg',
+      description: 'Queen Bed',
+      verified: 'Photo Verified by Project Overnight',
+    },
+    {
+      photoId: 2,
+      url: 'https://leileihrr.s3.amazonaws.com/decor001.jpg',
+      description: '',
+      verified: 'Photo Verified by Project Overnight',
+    },
+    {
+      photoId: 3,
+      url: 'https://leileihrr.s3.amazonaws.com/livingroom004.jpg',
+      description: 'Living room with fireplace',
+      verified: 'Photo Verified by Project Overnight',
+    },
+    {
+      photoId: 4,
+      url: 'https://leileihrr.s3.amazonaws.com/outdoors9.jpg',
+      description: '',
+      verified: 'Photo Verified by Project Overnight',
+    },
+    {
+      photoId: 5,
+      url: 'https://leileihrr.s3.amazonaws.com/outdoors10.jpg',
+      description: 'Private patio',
+      verified: 'Photo Verified by Project Overnight',
+    },
+    {
+      photoId: 6,
+      url: 'https://leileihrr.s3.amazonaws.com/decor002.jpg',
+      description: '',
+      verified: 'Photo Verified by Project Overnight',
+    },
+    {
+      photoId: 7,
+      url: 'https://leileihrr.s3.amazonaws.com/decor005.jpg',
+      description: '',
+      verified: 'Photo Verified by Project Overnight',
+    },
+    {
+      photoId: 8,
+      url: 'https://leileihrr.s3.amazonaws.com/bath002.jpg',
+      description: 'Newly renovated bath',
+      verified: 'Photo Verified by Project Overnight',
+    },
+    {
+      photoId: 9,
+      url: 'https://leileihrr.s3.amazonaws.com/bath003.jpg',
+      description: 'Newly renovated bath',
+      verified: 'Photo Verified by Project Overnight',
+    },
+    {
+      photoId: 10,
+      url: 'https://leileihrr.s3.amazonaws.com/bath004.jpg',
+      description: 'Newly renovated bath',
+      verified: 'Photo Verified by Project Overnight',
+    },
+    {
+      photoId: 11,
+      url: 'https://leileihrr.s3.amazonaws.com/outdoor8.jpg',
+      description: 'Private patio with grill',
+      verified: 'Photo Verified by Project Overnight',
+    },
+    {
+      photoId: 12,
+      url: 'https://leileihrr.s3.amazonaws.com/outdoors5.jpg',
+      description: 'San Francisco',
+      verified: 'Photo Verified by Project Overnight',
+    },
+  ],
+};
+
+db.RoomPhotos.collection.insertOne(demoRoom);
