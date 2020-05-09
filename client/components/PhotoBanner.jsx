@@ -11,7 +11,6 @@ class PhotoBanner extends React.Component {
 
     this.state = {
       roomId: (urlId || '300'),
-      // photos: [],
       // LOCAL TEST DATA
       photos: [
         {

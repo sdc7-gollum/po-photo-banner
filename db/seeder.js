@@ -106,9 +106,9 @@ const createSampleData = (startingId, numRecords) => {
   let id = startingId;
 
   for (let i = 0; i < numRecords; i += 1) {
-    // An arbitrary number was chosen for the max in generating random
-    // Each UI page can have at max 5 elements so this allows for a small set of photos
-    const photoArray = getRandomPhoto(Math.floor(Math.random() * (12 - 1) + 1));
+    // For the current functionality, best viewing requires:
+    // Min of 5 photos and max of 10 photos
+    const photoArray = getRandomPhoto(Math.floor(Math.random() * (10 - 5) + 5));
 
     const newRecord = {
       _id: id,
