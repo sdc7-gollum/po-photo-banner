@@ -31,6 +31,14 @@ class PhotoModal extends React.Component {
     const { loadModal, photos } = this.props;
     const { selectedPhoto } = this.state;
 
+    const carousel = [];
+    for (var i = 0; i < photos.length; i += 1) {
+      const image = (
+        <img src={photos[i].url} alt="" />
+      );
+      carousel.push(image);
+    }
+
     return (
       <div className="photo-modal">
         <div className="photo-modal-left">
@@ -41,12 +49,14 @@ class PhotoModal extends React.Component {
         </div>
         <div className="photo-modal-right">
           <div className="right-arrow" onClick={() => this.selectPhoto(selectedPhoto + 1)} role="button" onKeyPress={this.handleKeyPress} tabIndex="0" label="next" />
+          {/* <div className="right-arrow">&#10094;</div> */}
         </div>
-        <div className="photo-modal-right">
-          <button className="btn photo-modal-close" type="button" onClick={() => { loadModal(selectedPhoto); }}>&times;</button>
+        <div className="photo-modal-close">
+          <button className="btn exit-icon" type="button" onClick={() => { loadModal(selectedPhoto); }}>&times;</button>
         </div>
-        <div className="photo-modal-slider">
-          PLACEHOLDER FOR PHOTO SELECTOR
+        <div className="photo-modal-carousel">
+          {/* <img src={photos[selectedPhoto].url} alt="" /> */}
+          {carousel}
         </div>
         <div className="photo-modal-text">
           <div className="photo-modal-photonum">
