@@ -71,7 +71,7 @@ class PhotoModal extends React.Component {
         <div className="photo-modal-text">
           <div className="photo-modal-photonum">
             {photos[selectedPhoto].photoId}
-            /
+            &nbsp;/&nbsp;
             {photos.length}
           </div>
           <div className="photo-modal-desc">
