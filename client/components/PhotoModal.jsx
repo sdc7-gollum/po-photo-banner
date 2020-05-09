@@ -34,7 +34,7 @@ class PhotoModal extends React.Component {
     const carousel = [];
     for (let i = 0; i < photos.length; i += 1) {
       const image = (
-        <img src={photos[i].url} alt="" onClick={() => this.selectPhoto(i)} />
+        <img src={photos[i].url} alt="" onClick={() => this.selectPhoto(i)} className={selectedPhoto === i ? 'photo-selected' : ''} />
       );
       carousel.push(image);
     }
@@ -55,7 +55,6 @@ class PhotoModal extends React.Component {
           <button className="btn exit-icon" type="button" onClick={() => { loadModal(selectedPhoto); }}>&times;</button>
         </div>
         <div className="photo-modal-carousel">
-          {/* <img src={photos[selectedPhoto].url} alt="" /> */}
           {carousel}
         </div>
         <div className="photo-modal-text">

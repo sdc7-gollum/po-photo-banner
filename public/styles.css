@@ -179,6 +179,7 @@
   padding: 20px;
   overflow: hidden;
   justify-self: center;
+  align-self: center;
 }
 
 .photo-modal-carousel > img {
@@ -189,6 +190,15 @@
   height: 60px;
   width: 60px;
   opacity: .6
+}
+
+.photo-modal-carousel > img:hover {
+  opacity: 1;
+}
+
+.photo-selected {
+  opacity: 1;
+  box-shadow: 2px black;
 }
 
 .photo-modal-text {
