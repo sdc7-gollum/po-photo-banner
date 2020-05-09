@@ -14,7 +14,6 @@ class PhotoModal extends React.Component {
   selectPhoto(photoIndex) {
     const { photos } = this.props;
     let index = photoIndex;
-
     if (photoIndex < 0) {
       index = photos.length - 1;
     }
@@ -31,16 +30,21 @@ class PhotoModal extends React.Component {
     const { loadModal, photos } = this.props;
     const { selectedPhoto } = this.state;
 
+    // Create the photo carousel with styling
     const carousel = [];
     for (let i = 0; i < photos.length; i += 1) {
       const image = (
-        <img src={photos[i].url} alt="" onClick={() => this.selectPhoto(i)} className={selectedPhoto === i ? 'photo-selected' : ''} />
+        <button type="button" className="btnwrapper2" onClick={() => this.selectPhoto(i)}>
+          <img src={photos[i].url} alt="" className={selectedPhoto === i ? 'photo-selected' : 'photo-unselected'} />
+        </button>
       );
       carousel.push(image);
     }
 
     return (
       <div className="photo-modal">
+
+        {/* Modal controls */}
         <div className="photo-modal-left">
           <div className="left-arrow" onClick={() => this.selectPhoto(selectedPhoto - 1)} role="button" onKeyPress={this.handleKeyPress} tabIndex="0" label="previous" />
         </div>
@@ -54,9 +58,13 @@ class PhotoModal extends React.Component {
         <div className="photo-modal-close">
           <button className="btn exit-icon" type="button" onClick={() => { loadModal(selectedPhoto); }}>&times;</button>
         </div>
+
+        {/* Photo Carousel */}
         <div className="photo-modal-carousel">
           {carousel}
         </div>
+
+        {/* Photo Details Text */}
         <div className="photo-modal-text">
           <div className="photo-modal-photonum">
             {photos[selectedPhoto].photoId}
@@ -70,6 +78,7 @@ class PhotoModal extends React.Component {
             {photos[selectedPhoto].verified}
           </div>
         </div>
+
       </div>
     );
   }

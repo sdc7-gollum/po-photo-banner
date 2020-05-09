@@ -20,7 +20,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 18vw 18vw;
-  /* box-shadow: 1px  rgb(72, 72, 72); */
   border: 1px  rgb(72, 72, 72);
   overflow: hidden;
 }
@@ -32,13 +31,13 @@
 .cover-item {
   position: relative;
   overflow: hidden;
-  box-sizing: border-box;
   border: 1px solid  rgb(72, 72, 72);
   background-color: rgba(0, 0, 0, 0.25);
 }
 
 .cover-item > img {
-  min-height: 0%;
+  justify-self: center;
+  align-self: center;
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -49,11 +48,8 @@
 }
 
 /* HOVER EFFECTS */
-/* .view-photos:hover .cover-grid{
-  mix-blend-mode: normal;
-} */
-
 .cover-grid:hover > .cover-item > img {
+  background-color: rgba(0, 0, 0, 0.5);
   mix-blend-mode: darken;
 }
 
@@ -62,7 +58,7 @@
   mix-blend-mode: normal;
 }
 
-/* COVER BUTTONS */
+/* BUTTON STYLES */
 .btn {
   border: white;
   border-radius: 3px;
@@ -71,14 +67,13 @@
 }
 
 .cover-button {
+  cursor: pointer;
   padding: 10px 20px;
   font-size: 13px;
   font-weight: 900;
 }
 
 .view-photos {
-  cursor: pointer;
-  z-index: 2;
   grid-column-start: 4;
   justify-self: right;
   position: relative;
@@ -86,24 +81,33 @@
   margin-right: 26px;
 }
 
-/* .view-photos:hover > .cover-grid:hover{
+.btnwrapper1 {
+  background: transparent;
+  outline: none;
+}
 
-} */
+.btnwrapper2 {
+  background: transparent;
+  border: none;
+  outline: none;
+}
 
 /* MODAL STYLES */
 .photo-modal {
   background-color: white;
   position: absolute;
   top: 0;
-  width: 100%;
-  height: 100%;
+  /* min-width: 1040px; */
+  width: 100vw;
+  height: 100vh;
   display: grid;
-  grid-template-rows: 70% 1fr 1fr;
-  grid-template-columns: 1fr 70% 1fr;
+  grid-template-rows: 60vh 1fr 1fr .5fr;
+  grid-template-columns: 1fr 8fr 1fr;
   grid-template-areas:
     "pm-left pm-main pm-right"
     ". pm-carousel ."
     "pm-text pm-text pm-text"
+    ". . ."
 }
 
 .photo-modal-left {
@@ -160,62 +164,81 @@
 
 .photo-modal-main {
   grid-area: pm-main;
-  padding: 40px 40px 10px 40px;
+  padding: 40px 40px 30px 40px;
   overflow: hidden;
   align-content: center;
 }
 
 .photo-modal-main > img {
+  position: relative;
+  justify-self: center;
   cursor: pointer;
   margin: 0px 50px;
+  padding: 5px;
   object-fit: cover;
   border-radius: 16px;
   height: 100%;
-  max-width: 90%;
-}
-
-.photo-modal-carousel {
-  grid-area: pm-carousel;
-  padding: 20px;
-  overflow: hidden;
-  justify-self: center;
-  align-self: center;
-}
-
-.photo-modal-carousel > img {
-  cursor: pointer;
-  margin: 0px 10px;
-  object-fit: cover;
-  border-radius: 6px;
-  height: 60px;
-  width: 60px;
-  opacity: .6
-}
-
-.photo-modal-carousel > img:hover {
-  opacity: 1;
-}
-
-.photo-selected {
-  opacity: 1;
-  box-shadow: 2px black;
+  /* max-width: auto; */
 }
 
 .photo-modal-text {
   grid-area: pm-text;
-  margin: 10px 100px;
-  justify-self: start;
+  margin: 0px 150px;
 }
 
 .photo-modal-photonum {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: bold;
 }
 
 .photo-modal-desc {
   font-size: 16px;
+  margin: 20px 0px;
 }
 
 .photo-modal-verified {
-  font-size: 14px;
+  font-size: 13px;
+}
+
+/* Photo modal carousel and effects */
+.photo-modal-carousel {
+  grid-area: pm-carousel;
+  justify-self: center;
+  align-items: center;
+  /* overflow: hidden; */
+  overflow-x: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  max-width: 600px;
+}
+
+/* .photo-modal-carousel {
+  background: linear-gradient(
+    to right,
+    transparent 96%,
+  red 98%
+  );
+} */
+
+.photo-modal-carousel > button > img {
+  cursor: pointer;
+  margin: 2px 4px;
+  object-fit: cover;
+  border-radius: 5px;
+  height: 50px;
+  width: 50px;
+}
+
+.photo-modal-carousel > button > img:hover {
+  opacity: .8;
+}
+
+.photo-unselected {
+  opacity: .5;
+}
+
+.photo-selected {
+  opacity: 1;
+  box-shadow: 0px 0px 0px 2px rgb(72, 72, 72);
+  justify-self: center;
 }

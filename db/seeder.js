@@ -197,7 +197,7 @@ const demoRoom = {
     },
     {
       photoId: 11,
-      url: 'https://leileihrr.s3.amazonaws.com/outdoor8.jpg',
+      url: 'https://leileihrr.s3.amazonaws.com/outdoors8.jpg',
       description: 'Private patio with grill',
       verified: 'Photo Verified by Project Overnight',
     },
