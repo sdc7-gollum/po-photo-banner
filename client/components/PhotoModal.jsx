@@ -45,18 +45,21 @@ class PhotoModal extends React.Component {
       <div className="photo-modal">
 
         {/* Modal controls */}
+        <div className="photo-modal-close">
+          <button className="btn exit-icon" type="button" onClick={() => { loadModal(selectedPhoto); }}>&times;</button>
+        </div>
         <div className="photo-modal-left">
-          <div className="left-arrow" onClick={() => this.selectPhoto(selectedPhoto - 1)} role="button" onKeyPress={this.handleKeyPress} tabIndex="0" label="previous" />
+          <button className="btnwrapper2" type="button" onClick={() => this.selectPhoto(selectedPhoto - 1)}>
+            <div className="left-arrow" />
+          </button>
         </div>
         <div className="photo-modal-main">
           <img src={photos[selectedPhoto].url} alt="" />
         </div>
         <div className="photo-modal-right">
-          <div className="right-arrow" onClick={() => this.selectPhoto(selectedPhoto + 1)} role="button" onKeyPress={this.handleKeyPress} tabIndex="0" label="next" />
-          {/* <div className="right-arrow">&#10094;</div> */}
-        </div>
-        <div className="photo-modal-close">
-          <button className="btn exit-icon" type="button" onClick={() => { loadModal(selectedPhoto); }}>&times;</button>
+          <button className="btnwrapper2" type="button" onClick={() => this.selectPhoto(selectedPhoto + 1)}>
+            <div className="right-arrow" />
+          </button>
         </div>
 
         {/* Photo Carousel */}
