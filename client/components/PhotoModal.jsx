@@ -32,9 +32,9 @@ class PhotoModal extends React.Component {
     const { selectedPhoto } = this.state;
 
     const carousel = [];
-    for (var i = 0; i < photos.length; i += 1) {
+    for (let i = 0; i < photos.length; i += 1) {
       const image = (
-        <img src={photos[i].url} alt="" />
+        <img src={photos[i].url} alt="" onClick={() => this.selectPhoto(i)} />
       );
       carousel.push(image);
     }
