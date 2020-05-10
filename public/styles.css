@@ -21,7 +21,7 @@
   border: 1px  rgb(72, 72, 72);
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 0;
   grid-template-rows: 18vw 18vw;
 }
 
@@ -37,22 +37,10 @@
   "cover-main cover-main cover1 cover1";
 }
 
-.grid3 {
+.grid3, .grid4, .grid5 {
   grid-template-areas:
-  "cover-main cover-main cover1 cover1"
-  "cover-main cover-main cover2 cover2";
-}
-
-.grid4 {
-  grid-template-areas:
-  "cover-main cover-main cover1 cover2"
-  "cover-main cover-main cover3 cover3";
-}
-
-.grid5 {
-  grid-template-areas:
-  "cover-main cover-main cover1 cover3"
-  "cover-main cover-main cover2 cover4";
+  "cover-main cover-main cover1 cover1 cover3"
+  "cover-main cover-main cover2 cover2 cover4";
 }
 
 .cover-item-main {
@@ -275,40 +263,51 @@
 }
 
 /* RESPONSIVE LAYOUTS */
+/* the deltas */
 @media (min-width: 1120px) {
   .photo-modal {
-    background-color: white;
-    position: absolute;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    display: grid;
     grid-template-rows: .25fr .75fr 3fr 2fr;
     grid-template-columns: .5fr 60% .5fr 1.5fr;
     grid-template-areas:
       ". . . pm-close"
       "pm-left pm-main pm-right pm-carousel"
       "pm-left pm-main pm-right pm-text";
-
-  }
-
-  .photo-modal-main {
-    grid-area: pm-main;
-    margin: auto;
   }
 
   .photo-modal-carousel {
-    grid-area: pm-carousel;
-    justify-self: center;
     align-items: flex-start;
-    overflow-x: auto;
-    display: flex;
-    flex-flow: row nowrap;
     max-width: 250px;
   }
 
   .photo-modal-text {
-    grid-area: pm-text;
     margin: 0px 40px;
+  }
+
+  .grid4 {
+    grid-template-areas:
+    "cover-main cover-main cover1 cover2"
+    "cover-main cover-main cover3 cover3";
+  }
+
+  .grid5 {
+    grid-template-areas:
+    "cover-main cover-main cover1 cover3"
+    "cover-main cover-main cover2 cover4";
+  }
+}
+
+@media (max-width: 780px) {
+  .cover-grid {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 0 0 0 0;
+    grid-template-rows: 70vh;
+  }
+
+  .grid1, .grid2, .grid3, .grid4, .grid5 {
+    grid-template-areas:
+    "cover-main cover-main cover-main cover-main cover1 cover2 cover3 cover4";
   }
 }
