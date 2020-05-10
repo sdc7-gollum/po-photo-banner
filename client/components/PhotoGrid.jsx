@@ -21,7 +21,7 @@ function PhotoGrid({ photos, loadModal }) {
   }
 
   // choose grid based on number of photos
-  const gridClass = `cover-grid grid${photos.length}`;
+  const gridClass = `cover-grid grid${maxPhotos}`;
 
   return (
     <div className={gridClass}>
