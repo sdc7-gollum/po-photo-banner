@@ -106,9 +106,8 @@ const createSampleData = (startingId, numRecords) => {
   let id = startingId;
 
   for (let i = 0; i < numRecords; i += 1) {
-    // For the current functionality, best viewing requires:
-    // Min of 5 photos and an arbitrary max of 16
-    const photoArray = getRandomPhoto(Math.floor(Math.random() * (16 - 5) + 5));
+    // Randomizes photos count choosing min of 1 and max of 16
+    const photoArray = getRandomPhoto(Math.floor(Math.random() * (16 - 1) + 1));
 
     const newRecord = {
       _id: id,
