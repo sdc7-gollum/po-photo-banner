@@ -7,7 +7,7 @@ class PhotoBanner extends React.Component {
   constructor(props) {
     super(props);
 
-    const urlId = window.location.href.split('?')[1];
+    const urlId = new URL(document.location).searchParams.get('id');
 
     this.state = {
       roomId: (urlId || '300'),
