@@ -3,7 +3,6 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
-  devtool: 'source-map',
   entry: './client/index.jsx',
   output: {
     filename: 'photoBannerBundle.js',
@@ -24,9 +23,21 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.css$/i,
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+        ],
+      },
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.css'],
   },
 };
