@@ -17,7 +17,6 @@
 
 /* COVER GRID LAYOUTS */
 .coverGrid {
-  cursor: pointer;
   border: 1px  rgb(72, 72, 72);
   overflow: hidden;
   display: grid;
@@ -61,6 +60,7 @@
 }
 
 .coverItem {
+  cursor: pointer;
   overflow: hidden;
   border: 1px solid  rgb(72, 72, 72);
   background-color: rgba(0, 0, 0, 0.25);
