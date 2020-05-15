@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './styles.css';
 
 class PhotoModal extends React.Component {
   constructor(props) {
@@ -34,50 +35,50 @@ class PhotoModal extends React.Component {
     const carousel = [];
     for (let i = 0; i < photos.length; i += 1) {
       const image = (
-        <button type="button" className="btnwrapper2" onClick={() => this.selectPhoto(i)}>
-          <img src={photos[i].url} alt="" className={selectedPhoto === i ? 'photo-selected' : 'photo-unselected'} />
+        <button type="button" className={styles.btnwrapper2} onClick={() => this.selectPhoto(i)}>
+          <img src={photos[i].url} alt="" className={selectedPhoto === i ? styles.photoSelected : styles.photoUnselected} />
         </button>
       );
       carousel.push(image);
     }
 
     return (
-      <div className="photo-modal">
+      <div className={styles.photoModal}>
 
         {/* Modal controls */}
-        <div className="photo-modal-close">
-          <button className="btn exit-icon" type="button" onClick={() => { loadModal(selectedPhoto); }}>&times;</button>
+        <div className={styles.photoModalClose}>
+          <button className={`${styles.btn} ${styles.exitIcon}`} type="button" onClick={() => { loadModal(selectedPhoto); }}>&times;</button>
         </div>
-        <div className="photo-modal-left">
-          <button className="btnwrapper2" type="button" onClick={() => this.selectPhoto(selectedPhoto - 1)}>
-            <div className="left-arrow" />
+        <div className={styles.photoModalLeft}>
+          <button className={styles.btnwrapper2} type="button" onClick={() => this.selectPhoto(selectedPhoto - 1)}>
+            <div className={styles.leftArrow} />
           </button>
         </div>
-        <div className="photo-modal-main">
+        <div className={styles.photoModalMain}>
           <img src={photos[selectedPhoto].url} alt="" />
         </div>
-        <div className="photo-modal-right">
-          <button className="btnwrapper2" type="button" onClick={() => this.selectPhoto(selectedPhoto + 1)}>
-            <div className="right-arrow" />
+        <div className={styles.photoModalRight}>
+          <button className={styles.btnwrapper2} type="button" onClick={() => this.selectPhoto(selectedPhoto + 1)}>
+            <div className={styles.rightArrow} />
           </button>
         </div>
 
         {/* Photo Carousel */}
-        <div className="photo-modal-carousel">
+        <div className={styles.photoModalCarousel}>
           {carousel}
         </div>
 
         {/* Photo Details Text */}
-        <div className="photo-modal-text">
-          <div className="photo-modal-photonum">
+        <div className={styles.photoModalText}>
+          <div className={styles.photoModalPhotonum}>
             {photos[selectedPhoto].photoId}
             &nbsp;/&nbsp;
             {photos.length}
           </div>
-          <div className="photo-modal-desc">
+          <div className={styles.photoModalDesc}>
             {photos[selectedPhoto].description}
           </div>
-          <div className="photo-modal-verified">
+          <div className={styles.photoModalVerified}>
             {photos[selectedPhoto].verified}
           </div>
         </div>

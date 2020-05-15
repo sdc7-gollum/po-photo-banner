@@ -34,6 +34,7 @@
     "@shelf/jest-mongodb": "^1.1.5",
     "babel-jest": "^26.0.0",
     "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
@@ -47,6 +48,7 @@
     "jest-enzyme": "^7.1.2",
     "nodemon": "^2.0.3",
     "react-test-renderer": "^16.13.1",
+    "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   },
