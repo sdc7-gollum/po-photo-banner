@@ -3,7 +3,6 @@
 
 # Compiled Dirs
 public/photoBannerBundle.js
-public/styles.css
 
 # Dev Dependencies
 node_modules
