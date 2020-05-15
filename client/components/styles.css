@@ -16,8 +16,7 @@
 }
 
 /* COVER GRID LAYOUTS */
-.cover-grid {
-  cursor: pointer;
+.coverGrid {
   border: 1px  rgb(72, 72, 72);
   overflow: hidden;
   display: grid;
@@ -43,7 +42,7 @@
   "cover-main cover-main cover2 cover2 cover4";
 }
 
-.cover-item-main {
+.coverItemMain {
   grid-area: cover-main;
 }
 
@@ -60,13 +59,14 @@
   grid-area: cover4;
 }
 
-.cover-item {
+.coverItem {
+  cursor: pointer;
   overflow: hidden;
   border: 1px solid  rgb(72, 72, 72);
   background-color: rgba(0, 0, 0, 0.25);
 }
 
-.cover-item > img {
+.coverItem > img {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -75,12 +75,12 @@
 }
 
 /* COVER HOVER EFFECTS */
-.cover-grid:hover > .cover-item > img {
+.coverGrid:hover > .coverItem > img {
   background-color: rgba(0, 0, 0, 0.5);
   mix-blend-mode: darken;
 }
 
-.cover-item:hover > img:hover {
+.coverItem:hover > img:hover {
   transform: scale(1.05);
   mix-blend-mode: normal;
 }
@@ -94,14 +94,14 @@
   outline: none;
 }
 
-.cover-button {
+.coverButton {
   cursor: pointer;
   padding: 10px 20px;
   font-size: .8rem;
   font-weight: 900;
 }
 
-.view-photos {
+.viewPhotos {
   grid-column-start: 4;
   justify-self: right;
   position: relative;
@@ -116,7 +116,7 @@
 }
 
 /* CSS Icons */
-.left-arrow {
+.leftArrow {
   cursor: pointer;
   height: 17px;
   width: 17px;
@@ -127,7 +127,7 @@
   outline: none;
 }
 
-.right-arrow {
+.rightArrow {
   cursor: pointer;
   height: 17px;
   width: 17px;
@@ -138,16 +138,16 @@
   outline: none;
 }
 
-.exit-icon {
+.exitIcon {
   cursor: pointer;
   padding: 20px;
   font-size: 4rem;
 }
 
 /* MODAL STYLES */
-.photo-modal {
+.photoModal {
   background-color: white;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100vw;
   height: 100vh;
@@ -162,32 +162,32 @@
     ". . .";
 }
 
-.photo-modal-close {
+.photoModalClose {
   grid-area: pm-close;
   justify-self: right;
   margin-right: 20px;
 }
 
-.photo-modal-left {
+.photoModalLeft {
   grid-area: pm-left;
   align-self: center;
   justify-self: right;
   padding-right: 25px;
 }
 
-.photo-modal-right {
+.photoModalRight {
   grid-area: pm-right;
   align-self: center;
   justify-self: left;
   padding-left: 25px;
 }
 
-.photo-modal-main {
+.photoModalMain {
   grid-area: pm-main;
   margin: auto;
 }
 
-.photo-modal-main > img {
+.photoModalMain > img {
   cursor: pointer;
   border-radius: 16px;
   object-fit: cover;
@@ -195,27 +195,27 @@
   height: 100%;
 }
 
-.photo-modal-text {
+.photoModalText {
   grid-area: pm-text;
   margin: 0px 150px;
 }
 
-.photo-modal-photonum {
+.photoModalPhotonum {
   font-size: 1rem;
   font-weight: 700;
 }
 
-.photo-modal-desc {
+.photoModalDesc {
   font-size: .95rem;
   margin: 10px 0px;
 }
 
-.photo-modal-verified {
+.photoModalVerified {
   font-size: .85rem;
 }
 
 /* Photo modal carousel and effects */
-.photo-modal-carousel {
+.photoModalCarousel {
   grid-area: pm-carousel;
   justify-self: center;
   align-items: center;
@@ -239,7 +239,7 @@
   );
 } */
 
-.photo-modal-carousel > button > img {
+.photoModalCarousel > button > img {
   cursor: pointer;
   margin: 2px 4px;
   object-fit: cover;
@@ -250,22 +250,22 @@
   /* z-index: -1; */
 }
 
-.photo-modal-carousel > button > img:hover {
+.photoModalCarousel > button > img:hover {
   opacity: .8;
 }
 
-.photo-unselected {
+.photoUnselected {
   opacity: .5;
 }
 
-.photo-selected {
+.photoSelected {
   box-shadow: 0px 0px 0px 2px rgb(72, 72, 72);
 }
 
 /* RESPONSIVE LAYOUTS */
 /* the deltas */
 @media (min-width: 1120px) {
-  .photo-modal {
+  .photoModal {
     grid-template-rows: .25fr .75fr 3fr 2fr;
     grid-template-columns: .5fr 60% .5fr 1.5fr;
     grid-template-areas:
@@ -274,12 +274,12 @@
       "pm-left pm-main pm-right pm-text";
   }
 
-  .photo-modal-carousel {
+  .photoModalCarousel {
     align-items: flex-start;
     max-width: 250px;
   }
 
-  .photo-modal-text {
+  .photoModalText {
     margin: 0px 40px;
   }
 
@@ -297,7 +297,7 @@
 }
 
 @media (max-width: 780px) {
-  .cover-grid {
+  .coverGrid {
     z-index: 2;
     position: absolute;
     top: 0;
