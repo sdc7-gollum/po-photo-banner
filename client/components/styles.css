@@ -223,21 +223,7 @@
   display: flex;
   flex-flow: row nowrap;
   max-width: 600px;
-  /* background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 96%,
-    rgba(255, 255, 255, 1) 98%
-  ); */
 }
-
-/* .photo-modal-carousel:after {
-  position: absolute;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 96%,
-    rgba(255, 255, 0, 1) 98%
-  );
-} */
 
 .photoModalCarousel > button > img {
   cursor: pointer;
@@ -246,8 +232,6 @@
   border-radius: 5px;
   height: 50px;
   width: 50px;
-  /* mix-blend-mode: normal; */
-  /* z-index: -1; */
 }
 
 .photoModalCarousel > button > img:hover {
@@ -264,10 +248,66 @@
 
 /* RESPONSIVE LAYOUTS */
 /* the deltas */
-@media (min-width: 1120px) {
+@media (max-width: 450px) {
+  .gridPosition {
+    bottom: 2em;
+  }
+
+  .coverGrid {
+    grid-template-columns: 1fr 0 0 0 0;
+    grid-template-rows: 35vh;
+  }
+
+  .grid1, .grid2, .grid3, .grid4, .grid5 {
+    grid-template-areas:
+    "cover-main cover1 cover2 cover3 cover4";
+  }
+
+  .viewPhotos {
+    display: none;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 750px) {
+   .gridPosition {
+    bottom: 2em;
+  }
+
+  .coverGrid {
+    grid-template-columns: 1fr 0 0 0 0;
+    grid-template-rows: 56vh;
+  }
+
+  .grid1, .grid2, .grid3, .grid4, .grid5 {
+    grid-template-areas:
+    "cover-main cover1 cover2 cover3 cover4";
+  }
+
+  .viewPhotos {
+    display: none;
+  }
+}
+
+
+@media (min-width: 751px) and (max-width: 1120px) {
+  .gridPosition {
+    bottom: 5.5em;
+  }
+
+  .coverGrid {
+    grid-template-columns: 1fr 1fr 1fr 1fr 0;
+    grid-template-rows: 30vh 30vh;
+  }
+
+  .grid4, .grid5 {
+    grid-template-areas:
+    "cover-main cover-main cover1 cover1 cover3"
+    "cover-main cover-main cover2 cover2 cover4";
+  }
+
   .photoModal {
     grid-template-rows: .25fr .75fr 3fr 2fr;
-    grid-template-columns: .5fr 60% .5fr 1.5fr;
+    grid-template-columns: .5fr 60% .5fr 1.5fr 0;
     grid-template-areas:
       ". . . pm-close"
       "pm-left pm-main pm-right pm-carousel"
@@ -283,6 +323,30 @@
     margin: 0px 40px;
   }
 
+}
+
+@media (min-width: 1121px) {
+  .gridPosition {
+    bottom: 5.5em;
+  }
+
+  .coverGrid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 18vw 18vw;
+  }
+
+  .grid1 {
+    grid-template-areas:
+    "cover-main cover-main cover-main cover-main"
+    "cover-main cover-main cover-main cover-main";
+  }
+
+  .grid2 {
+    grid-template-areas:
+    "cover-main cover-main cover1 cover1"
+    "cover-main cover-main cover1 cover1";
+  }
+
   .grid4 {
     grid-template-areas:
     "cover-main cover-main cover1 cover2"
@@ -294,20 +358,5 @@
     "cover-main cover-main cover1 cover3"
     "cover-main cover-main cover2 cover4";
   }
-}
 
-@media (max-width: 780px) {
-  .coverGrid {
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    grid-template-columns: 1fr 1fr 1fr 1fr 0 0 0 0;
-    grid-template-rows: 70vh;
-  }
-
-  .grid1, .grid2, .grid3, .grid4, .grid5 {
-    grid-template-areas:
-    "cover-main cover-main cover-main cover-main cover1 cover2 cover3 cover4";
-  }
 }
