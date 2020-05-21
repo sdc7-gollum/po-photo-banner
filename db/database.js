@@ -36,8 +36,43 @@ const getPhotosByRoomId = (id, callback) => {
   });
 };
 
+const postPhotosByRoomId = (obj, callback) => {
+  const newRoom = new RoomPhotos(obj);
+  newRoom.save(obj, (err, photos) => {
+    console.log(obj);
+    if (err) {
+      callback(err);
+    } else {
+      callback(err, photos);
+    }
+  });
+};
+
+const updatePhotosByRoomId = (obj, callback) => {
+  RoomPhotos.updateOne({ _id: obj._id }, obj, (err, photos) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(err, photos);
+    }
+  });
+};
+
+const deletePhotosByRoomId = (id, callback) => {
+  RoomPhotos.deleteOne({ _id: id }, (err, photos) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(err, photos);
+    }
+  });
+};
+
 module.exports = {
   db,
   RoomPhotos,
   getPhotosByRoomId,
+  postPhotosByRoomId,
+  updatePhotosByRoomId,
+  deletePhotosByRoomId,
 };
