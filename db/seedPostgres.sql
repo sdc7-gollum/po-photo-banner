@@ -69,6 +69,7 @@ CREATE TABLE pophotos_80 PARTITION OF pophotos
 
 
 COPY pophotos(record_id, photos_id, url, description, verified)
+
 FROM '/Users/justinpaoletta/Desktop/po-photo-banner/db/photos.csv' DELIMITER ',' CSV HEADER;
 
 -- \i /Users/justinpaoletta/Desktop/po-photo-banner/db/seedPostgres.sql
