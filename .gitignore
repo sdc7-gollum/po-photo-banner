@@ -9,3 +9,6 @@ node_modules
 
 # Local tests
 spec/coverage
+
+# Massive Records File
+# db/photos.csv
