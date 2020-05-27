@@ -11,4 +11,4 @@ node_modules
 spec/coverage
 
 # Massive Records File
-# db/photos.csv
+db/photos.csv
