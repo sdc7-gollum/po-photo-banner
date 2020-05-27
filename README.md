@@ -56,7 +56,7 @@ npm install
 
 ## CRUD ROUTES
 
-GET /api/photos/:id - Gets all the photos for the specific ID
-POST /api/photos/:id - Posts a new set of photos for a new ID
-PUT /api/photos/:id - Modifies the photos for the specific ID
-DELETE /api/photos/:id - Deletes all photos for a specific ID
+- GET /api/photos/:id - Gets all the photos for the specific ID
+- POST /api/photos/:id - Posts a new set of photos for a new ID
+- PUT /api/photos/:id - Modifies the photos for the specific ID
+- DELETE /api/photos/:id - Deletes all photos for a specific ID
