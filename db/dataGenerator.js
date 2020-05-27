@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
+
 const fs = require('file-system');
 
 const writePhotos = fs.createWriteStream('photos.csv');
-writePhotos.write('i, photoId, url, description, verified\n', 'utf8');
+writePhotos.write('record_id, photo_id, url, description, verified\n', 'utf8');
 
 let count = 0;
 
@@ -35,13 +36,13 @@ const myPhotos = [];
 
 
 while (count < 1000) {
-  myPhotos.push(`https://i.picsum.photos/id/${count}/800/700.jpg`);
+  myPhotos.push(`https://my-sdc-photos.s3.us-east-2.amazonaws.com/sdc${count}.jpg`);
   count += 1;
 }
 
 
 function writeTenMillionPhotoRecords(writer, encoding, callback) {
-  let i = 1;
+  let recordId = 1;
   let clearCount = 0;
   let photoId = 0;
   let photosInRecord = Math.floor(Math.random() * (5) + 5);
@@ -55,14 +56,14 @@ function writeTenMillionPhotoRecords(writer, encoding, callback) {
       const url = myPhotos[Math.floor(Math.random() * (999 - 0))];
       const description = photoDesc[Math.floor(Math.random() * (20))];
       const verified = verifiedText[Math.floor(Math.random() * (2))];
-      const data = `${i},${photoId},${url},${description},${verified}\n`;
-      if (i === 0) {
+      const data = `${recordId}, ${recordId}.${photoId}, ${url}, ${description}, ${verified}\n`;
+      if (recordId === 0) {
         writer.write(data, encoding, callback);
       } else {
         photosInRecord -= 1;
         if (photosInRecord === 0) {
-          i += 1;
-          console.log(i);
+          recordId += 1;
+          console.log(recordId);
           clearCount += 1;
           photoId = 0;
           photosInRecord = Math.floor(Math.random() * (5) + 5);
@@ -73,8 +74,8 @@ function writeTenMillionPhotoRecords(writer, encoding, callback) {
         }
         ok = writer.write(data, encoding);
       }
-    } while (i > 0 && ok);
-    if (i <= 10000000) {
+    } while (recordId > 0 && ok);
+    if (recordId <= 10000000) {
       writer.once('drain', write);
     }
   }
