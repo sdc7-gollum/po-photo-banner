@@ -1,0 +1,8 @@
+M	README.md
+D	client/.gitkeep
+M	client/components/PhotoBanner.jsx
+M	db/database.js
+M	package-lock.json
+M	package.json
+D	public/.gitkeep
+M	server/server.js
