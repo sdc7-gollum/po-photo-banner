@@ -1,7 +1,7 @@
 {
   "name": "po-photo-banner",
   "description": "A service handling the photo banner to display and allow the user to browse through photos. See a photo grid displaying up to 5 images, whereby hovering over one brings the photo into focus and dimming the others. Click into the photo to see more details and access other images for the record via an image carousel.",
-  "author": "LeiLei Ros",
+  "author": "LeiLei Ros - Scaled to 10 Million Records by Justin Paoletta",
   "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
@@ -25,6 +25,7 @@
     "jquery": "^3.5.0",
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.10",
+    "pg": "^8.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
