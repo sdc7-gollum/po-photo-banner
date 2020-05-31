@@ -23,16 +23,16 @@ app.listen(process.env.SERVER_PORT, (err) => {
     console.log(`Server now hosted on http://${host}:${port}`);
   }
 });
-app.use(bodyParser.json());
+
 app.use(express.static('public'));
 app.use(express.urlencoded());
+app.use(bodyParser.json());
 
 // HTTP HANDLERS
 
 app.get('/api/photos/:id', (req, res) => {
-  const start = Number(req.params.id);
-  const end = start + 1;
-  dbfile.client.query(`SELECT * FROM pophotos WHERE photos_id BETWEEN ${start} and ${end}`)
+  const start = req.params.id;
+  dbfile.client.query(`SELECT * FROM pophotos WHERE photos_id BETWEEN ${start} AND ${start * 1 + 1}`)
     .then((results) => {
       const photoArray = [];
       let counter = 1;
@@ -58,14 +58,15 @@ app.post('/api/photos/:id', (req, res) => {
   const { photo } = req.body;
   const { description } = req.body;
   const { verified } = req.body;
+
+  console.log(`${start}, ${photoId}, ${photo}, ${description}, ${verified}`);
   dbfile.client.query(`INSERT INTO pophotos (record_id, photos_id, url, description, verified)
-  VALUES (${start}, ${photoId}, ${photo}, ${description}, ${verified});`)
+  VALUES (${start}, ${photoId}, '${photo}', '${description}', '${verified}')`)
     .then(() => {
       res.status(201).send('Posted');
     })
-    .catch(() => { res.status(400).send('Could Not Post Data'); });
+    .catch((error) => { console.log(error); res.status(400).send('Could Not Post Data'); });
 });
-
 
 // HTTP Handlers Mongo Setup
 

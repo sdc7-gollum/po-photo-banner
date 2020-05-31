@@ -67,7 +67,7 @@ function writeTenMillionPhotoRecords(writer, encoding, callback) {
           clearCount += 1;
           photoId = 0;
           photosInRecord = Math.floor(Math.random() * (5) + 5);
-          if (clearCount >= 50000) {
+          if (clearCount >= 25000) {
             clearCount = 0;
             writer.once('drain', write);
           }
