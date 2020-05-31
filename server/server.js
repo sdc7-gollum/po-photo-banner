@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+require('newrelic');
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -22,37 +23,50 @@ app.listen(process.env.SERVER_PORT, (err) => {
     console.log(`Server now hosted on http://${host}:${port}`);
   }
 });
-app.use(bodyParser.json());
+
 app.use(express.static('public'));
 app.use(express.urlencoded());
+app.use(bodyParser.json());
 
 // HTTP HANDLERS
 
 app.get('/api/photos/:id', (req, res) => {
   const start = req.params.id;
-  console.log(start);
-  const end = Number(start) + 1;
-  console.log(end);
-  dbfile.client.query(`SELECT * FROM pophotos WHERE photos_id BETWEEN ${start} and ${end}`)
+  dbfile.client.query(`SELECT * FROM pophotos WHERE photos_id BETWEEN ${start} AND ${start * 1 + 1}`)
     .then((results) => {
-      console.table(results.rows);
-      const record = results.rows[0].record_id;
       const photoArray = [];
+      let counter = 1;
       results.rows.forEach((rec) => {
         rec = {
-          photoId: rec.photos_id.toString().split('.')[1], url: rec.url, description: rec.description, verified: rec.verified,
-        }; photoArray.push(rec);
+          photoId: counter, url: rec.url, description: rec.description, verified: rec.verified,
+        };
+        photoArray.push(rec);
+        counter++;
       });
       const shapeData = {
-        _id: record,
+        _id: start,
         photos: photoArray,
       };
-      console.log(shapeData);
       res.status(201).send(shapeData);
     })
     .catch(() => { res.status(400).send('Could Not Get Data'); });
 });
 
+app.post('/api/photos/:id', (req, res) => {
+  const start = Number(req.params.id);
+  const { photoId } = req.body;
+  const { photo } = req.body;
+  const { description } = req.body;
+  const { verified } = req.body;
+
+  console.log(`${start}, ${photoId}, ${photo}, ${description}, ${verified}`);
+  dbfile.client.query(`INSERT INTO pophotos (record_id, photos_id, url, description, verified)
+  VALUES (${start}, ${photoId}, '${photo}', '${description}', '${verified}')`)
+    .then(() => {
+      res.status(201).send('Posted');
+    })
+    .catch((error) => { console.log(error); res.status(400).send('Could Not Post Data'); });
+});
 
 // HTTP Handlers Mongo Setup
 

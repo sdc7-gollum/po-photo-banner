@@ -12,3 +12,6 @@ spec/coverage
 
 # Massive Records File
 db/photos.csv
+
+# New Relic License
+new_key.js
